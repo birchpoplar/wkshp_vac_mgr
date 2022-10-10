@@ -1,0 +1,30 @@
+\documentclass[letter]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+
+\usepackage{circuitikz,tikz}
+\usetikzlibrary{circuits.ee.IEC.relay}
+
+\begin{document}
+    \begin{circuitikz}[circuit ee IEC relay,thick]
+        \draw (5,5) to[sV=$V$, l= Live, a= Neutral] ++(3,0);
+        \draw (3,3) to[twoport, t=relay] node[above]{Live} (6,3);
+    \end{circuitikz}
+
+\end{document}
+
+
+
